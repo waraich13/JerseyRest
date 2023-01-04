@@ -1,5 +1,6 @@
 package com.dav.JerseyRest;
 
+@P
 public class People {
 	private String name;
 
