@@ -1,5 +1,5 @@
 
-package com.dav.JerseyRest;
+package com.dav.Resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
