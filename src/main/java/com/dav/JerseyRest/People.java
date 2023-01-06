@@ -10,6 +10,11 @@ public class People {
 		return name;
 	}
 
+	@Override
+	public String toString() {
+		return "People [name=" + name + "]";
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
