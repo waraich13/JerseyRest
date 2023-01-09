@@ -9,7 +9,7 @@ public class PeopleRepository {
 	List<People> people;
 
 	public PeopleRepository() {
-		people = new ArrayList<>();
+		people = new ArrayList<People>();
 
 		People p1 = new People();
 		p1.setName("Dav");

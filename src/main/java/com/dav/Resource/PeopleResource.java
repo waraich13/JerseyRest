@@ -10,28 +10,45 @@ import javax.ws.rs.core.MediaType;
 
 import com.dav.JerseyRest.People;
 import com.dav.Repository.PeopleRepository;
+import com.dav.Repository.Peopledb;
 
 @Path("/people")
 public class PeopleResource {
 
-	PeopleRepository peoplerepo = new PeopleRepository();
+	PeopleRepository peoplerepo = null;
+	Peopledb peopledb = null;
+	
+	
+	public PeopleResource() throws Exception {
+		this.peoplerepo = new PeopleRepository(); // data is comming from Repository class 
+		this.peopledb = new Peopledb(); // data is coming from sql server db
+	}
 
 	@GET
+	@Path("/all")
 	@Produces(MediaType.APPLICATION_XML)
-	public List<People> GetListOfPeople() {
+	public List<People> GetListOfPeopleAsXML() throws Exception {
 
-		return peoplerepo.getPeople();
+		return peopledb.getPeople();
 
 	}
+	
+	@GET
+	@Path("/all")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<People> GetListOfPeopleAsJson() throws Exception {
+
+		return peopledb.getPeople();
+
+	}
+	
 
 	@POST
 	@Path("/addpeople")
-	public People CreatePeople(People p) {
+	public void CreatePeople(String p) throws Exception {
 
-		peoplerepo.addPeople(p);
-		System.out.println(p);
+		peopledb.addPeople(p);
 
-		return p;
 	}
 
 }
