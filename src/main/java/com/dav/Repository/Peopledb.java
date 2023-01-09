@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.dav.JerseyRest.People;
@@ -33,7 +34,7 @@ public class Peopledb {
 	}
 	
 	
-	public  ArrayList<People> getPeople() throws Exception{
+	public  ArrayList<People> getPeople() throws SQLException, ClassNotFoundException{
 		try {
 			Connection con = getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT * FROM PEOPLE");
@@ -58,7 +59,7 @@ public class Peopledb {
 	
 
 
-	public Connection getConnection() throws Exception {
+	public Connection getConnection() throws SQLException, ClassNotFoundException {
 		Connection con = null;	
 		String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		String url = "jdbc:sqlserver://localhost; databaseName=eclipsejava; integratedSecurity=true;trustServerCertificate=true";
