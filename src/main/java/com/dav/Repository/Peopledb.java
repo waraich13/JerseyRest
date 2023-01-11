@@ -17,11 +17,11 @@ public class Peopledb {
 	}
 
 
-	public void addPeople(String p) throws Exception {
-		String var = "Test";
+	public void addPeople(String person) throws Exception {
+		
 		try {
 			Connection con = getConnection();
-			PreparedStatement posted = con.prepareStatement("INSERT INTO (PEOPLE) VALUES ('"+var+"')");
+			PreparedStatement posted = con.prepareStatement("INSERT INTO PEOPLE VALUES ('"+person+"')");
 			posted.executeUpdate();
 
 			System.out.println("People Added!");
@@ -46,7 +46,7 @@ public class Peopledb {
 				System.out.println(result.getString("Name"));
 				
 				People p = new People();
-				p.setName("Name");
+				p.setName(result.getString("Name"));
 				
 				
 				people.add(p);

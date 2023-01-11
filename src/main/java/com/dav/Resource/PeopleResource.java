@@ -45,9 +45,12 @@ public class PeopleResource {
 
 	@POST
 	@Path("/addpeople")
-	public void CreatePeople(String p) throws Exception {
-
-		peopledb.addPeople(p);
+	public void CreatePeople(String person) throws Exception {
+		
+		//1 ) if p is null return BadRequest..value is null
+		// 2) if person added successfully, return something(person variable with a message; a simple message(person added))
+		
+		peopledb.addPeople(person);
 
 	}
 
