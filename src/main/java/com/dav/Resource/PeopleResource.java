@@ -2,6 +2,7 @@ package com.dav.Resource;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -23,7 +24,7 @@ public class PeopleResource {
 		this.peoplerepo = new PeopleRepository(); // data is comming from Repository class 
 		this.peopledb = new Peopledb(); // data is coming from sql server db
 	}
-
+	
 	@GET
 	@Path("/all")
 	@Produces(MediaType.APPLICATION_XML)
@@ -32,6 +33,7 @@ public class PeopleResource {
 		return peopledb.getPeople();
 
 	}
+	
 	
 	@GET
 	@Path("/all")
@@ -44,8 +46,9 @@ public class PeopleResource {
 	
 
 	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/addpeople")
-	public void CreatePeople(String person) throws Exception {
+	public void CreatePeople( String person) throws Exception {
 		
 		//1 ) if p is null return BadRequest..value is null
 		// 2) if person added successfully, return something(person variable with a message; a simple message(person added))
@@ -53,5 +56,20 @@ public class PeopleResource {
 		peopledb.addPeople(person);
 
 	}
+	
+	
+	/*
+	 * @GET
+	 * 
+	 * @Path("retrieve/{uuid}") public Response retrieveSomething(@PathParam("uuid")
+	 * String uuid) { if(uuid == null || uuid.trim().length() == 0) { return
+	 * Response.serverError().entity("UUID cannot be blank").build(); } Entity
+	 * entity = service.getById(uuid); if(entity == null) { return
+	 * Response.status(Response.Status.NOT_FOUND).
+	 * entity("Entity not found for UUID: " + uuid).build(); } String json =
+	 * //convert entity to json return Response.ok(json,
+	 * MediaType.APPLICATION_JSON).build(); }
+	 */
+	 
 
 }
