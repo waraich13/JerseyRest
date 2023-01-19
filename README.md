@@ -6,5 +6,4 @@
       
       Check also this article:
       https://www.w3docs.com/snippets/java/jax-rs-how-to-return-json-and-http-status-code-together.html
-      
- 2) Resources should get the data from Repository classes. Repository classes should call the PeopleDB to get the data.
+     
