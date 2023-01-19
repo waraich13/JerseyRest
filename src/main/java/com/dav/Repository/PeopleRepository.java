@@ -1,6 +1,6 @@
 package com.dav.Repository;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.dav.JerseyRest.People;
@@ -8,27 +8,20 @@ import com.dav.JerseyRest.People;
 public class PeopleRepository {
 	List<People> people;
 
-	public PeopleRepository() {
-		people = new ArrayList<People>();
+	Peopledb peopledb = null;
 
-		People p1 = new People();
-		p1.setName("Dav");
-
-		People p2 = new People();
-		p2.setName("Jas");
-
-		people.add(p1);
-		people.add(p2);
+	public PeopleRepository() throws Exception {
+		this.peopledb = new Peopledb();
+	
 	}
 
-	public List<People> getPeople() {
+	public List<People> getPeople() throws ClassNotFoundException, SQLException {
 
-		return people;
+		return this.peopledb.getPeople();
 	}
 
-	public void addPeople(People p) {
-
-		people.add(p);
+	public void addPeople(String person) throws Exception {
+		this.peopledb.addPeople(person);
 
 	}
 

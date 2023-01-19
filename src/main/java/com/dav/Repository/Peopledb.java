@@ -37,7 +37,7 @@ public class Peopledb {
 	public  ArrayList<People> getPeople() throws SQLException, ClassNotFoundException{
 		try {
 			Connection con = getConnection();
-			PreparedStatement statement = con.prepareStatement("SELECT * FROM PEOPLE");
+			PreparedStatement statement = con.prepareStatement("SELECT * FROM PEOPLE order by name");
 			
 			ResultSet result = statement.executeQuery();
 			
