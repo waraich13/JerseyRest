@@ -1,6 +1,6 @@
 # JerseyRest
  
-#Todo
+## Todo
  1) Return HttpStatus responses. Like the "accepted answer" in this post. They are returning Http.OK() type of response:
       https://stackoverflow.com/questions/4687271/jax-rs-how-to-return-json-and-http-status-code-together
       
